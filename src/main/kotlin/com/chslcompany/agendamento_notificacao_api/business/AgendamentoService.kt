@@ -3,8 +3,8 @@ package com.chslcompany.agendamento_notificacao_api.business
 import com.chslcompany.agendamento_notificacao_api.business.mapper.AgendamentoMapper
 import com.chslcompany.agendamento_notificacao_api.controller.dto.`in`.AgendamentoRecord
 import com.chslcompany.agendamento_notificacao_api.controller.dto.out.AgendamentoRecordOut
+import com.chslcompany.agendamento_notificacao_api.infrastructure.exception.NotFoundException
 import com.chslcompany.agendamento_notificacao_api.infrastructure.repositories.AgendamentoRepository
-import lombok.RequiredArgsConstructor
 import org.springframework.stereotype.Service
 
 
@@ -20,12 +20,12 @@ class AgendamentoService (
         )
     }
 
-//    fun buscarAgendamentosPorId(id: Long): AgendamentoRecordOut {
-//        return agendamentoMapper.paraOut(
-//            repository.findById(id)
-//                .orElseThrow { NotFoundException("Id não encontrado") }
-//        )
-//    }
+    fun buscarAgendamentosPorId(id: Long): AgendamentoRecordOut {
+        return agendamentoMapper.paraOut(
+            repository.findById(id)
+                .orElseThrow { NotFoundException("Id não encontrado") }
+        )
+    }
 
 //    fun cancelarAgendamento(id: Long) {
 //        val agendamento = repository.findById(id)

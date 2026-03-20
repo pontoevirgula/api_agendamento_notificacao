@@ -14,15 +14,19 @@ class AgendamentoController(
 ) {
 
     @PostMapping
-    fun gravarAgendamentos(@RequestBody agendamento: AgendamentoRecord): ResponseEntity<AgendamentoRecordOut> {
+    fun gravarAgendamentos(
+        @RequestBody agendamento: AgendamentoRecord
+    ): ResponseEntity<AgendamentoRecordOut> {
         return ResponseEntity.ok(agendamentoService.gravarAgendamento(agendamento))
     }
 
-//    @GetMapping("/{id}")
-//    fun buscarAgendamentoPorId(@PathVariable("id") id: Long): ResponseEntity<AgendamentoRecordOut> {
-//        return ResponseEntity.ok(agendamentoService.buscarAgendamentosPorId(id))
-//    }
-//
+    @GetMapping("/{id}")
+    fun buscarAgendamentoPorId(
+        @PathVariable("id") id: Long
+    ): ResponseEntity<AgendamentoRecordOut> {
+        return ResponseEntity.ok(agendamentoService.buscarAgendamentosPorId(id))
+    }
+
 //    @DeleteMapping("/{id}")
 //    fun cancelarAgendamento(@PathVariable("id") id: Long): ResponseEntity<Void> {
 //        agendamentoService.cancelarAgendamento(id)
