@@ -31,4 +31,10 @@ class AgendamentoMapper {
             statusNotificacao = entity.statusNotificacao ?: StatusNotificacaoEnum.AGENDADO
         )
     }
-}
+
+    fun paraEntityCancelamento(entity: Agendamento): Agendamento {
+        return entity.copy(
+            dataHoraModificacao = LocalDateTime.now(),
+            statusNotificacao = StatusNotificacaoEnum.CANCELADO
+        )
+    }}

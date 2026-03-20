@@ -27,12 +27,12 @@ class AgendamentoService (
         )
     }
 
-//    fun cancelarAgendamento(id: Long) {
-//        val agendamento = repository.findById(id)
-//            .orElseThrow { NotFoundException("Id não encontrado") }
-//        repository.save(
-//            agendamentoMapper.paraEntityCancelamento(agendamento)
-//        )
-//    }
+    fun cancelarAgendamento(id: Long) {
+        val agendamento = repository.findById(id)
+            .orElseThrow { NotFoundException("Id não encontrado") }
+        repository.save(
+            agendamentoMapper.paraEntityCancelamento(agendamento)
+        )
+    }
 
 }
